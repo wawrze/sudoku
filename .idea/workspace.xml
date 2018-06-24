@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e94f824a-a0d4-4f3b-9d02-e5b10a40aef3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sudoku/user_interface/ConsoleInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/sudoku/user_interface/ConsoleInterfaceTestSuite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -39,8 +39,8 @@
       <file leaf-file-name="SudokuGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="662">
+              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding>
                 <element signature="e#1690#1691#0" expanded="true" />
                 <element signature="e#1718#1719#0" expanded="true" />
@@ -49,27 +49,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleInterfaceTestSuite.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/sudoku/user_interface/ConsoleInterfaceTestSuite.java">
+      <file leaf-file-name="SudokuGameTestSuite.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+            <state relative-caret-position="2855">
+              <caret line="278" column="34" selection-start-line="278" selection-start-column="34" selection-end-line="278" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConsoleInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sudoku/user_interface/ConsoleInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1862#1863#0" expanded="true" />
-                <element signature="e#1904#1905#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -400,11 +386,11 @@
         <option value="$PROJECT_DIR$/src/main/java/sudoku/exceptions/IncorrectValueException.java" />
         <option value="$PROJECT_DIR$/src/test/java/sudoku/board/BoardTestSuite.java" />
         <option value="$PROJECT_DIR$/src/main/java/sudoku/board/SudokuElement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/sudoku/user_interface/UserInterface.java" />
-        <option value="$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java" />
         <option value="$PROJECT_DIR$/src/test/java/sudoku/user_interface/ConsoleInterfaceTestSuite.java" />
         <option value="$PROJECT_DIR$/src/main/java/sudoku/user_interface/ConsoleInterface.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java" />
       </list>
     </option>
   </component>
@@ -517,7 +503,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Sudoku_test (1)">
+  <component name="RunManager" selected="JUnit.SudokuGameTestSuite.testResolveSudoku2">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -555,29 +541,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="BoardTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sudoku_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sudoku.board.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="sudoku.board" />
-      <option name="MAIN_CLASS_NAME" value="sudoku.board.BoardTestSuite" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration name="ConsoleInterfaceTestSuite.testPrintBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sudoku_test" />
       <extension name="coverage">
@@ -601,11 +564,11 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="SudokuGameTestSuite.testSetValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SudokuGameTestSuite.testResolveSudoku1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sudoku_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sudoku.*" />
+          <option name="PATTERN" value="sudoku.board.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -613,7 +576,30 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="sudoku" />
       <option name="MAIN_CLASS_NAME" value="sudoku.SudokuGameTestSuite" />
-      <option name="METHOD_NAME" value="testSetValue" />
+      <option name="METHOD_NAME" value="testResolveSudoku1" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="SudokuGameTestSuite.testResolveSudoku2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sudoku_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sudoku.board.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="sudoku" />
+      <option name="MAIN_CLASS_NAME" value="sudoku.SudokuGameTestSuite" />
+      <option name="METHOD_NAME" value="testResolveSudoku2" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -663,19 +649,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.BoardTestSuite" />
-      <item itemvalue="JUnit.SudokuGameTestSuite.testSetValue" />
       <item itemvalue="JUnit.All in Sudoku_test" />
       <item itemvalue="JUnit.ConsoleInterfaceTestSuite.testPrintBoard" />
       <item itemvalue="JUnit.All in Sudoku_test (1)" />
+      <item itemvalue="JUnit.SudokuGameTestSuite.testResolveSudoku1" />
+      <item itemvalue="JUnit.SudokuGameTestSuite.testResolveSudoku2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SudokuGameTestSuite.testResolveSudoku2" />
+        <item itemvalue="JUnit.SudokuGameTestSuite.testResolveSudoku1" />
         <item itemvalue="JUnit.All in Sudoku_test (1)" />
         <item itemvalue="JUnit.ConsoleInterfaceTestSuite.testPrintBoard" />
         <item itemvalue="JUnit.All in Sudoku_test" />
-        <item itemvalue="JUnit.SudokuGameTestSuite.testSetValue" />
-        <item itemvalue="JUnit.BoardTestSuite" />
       </list>
     </recent_temporary>
   </component>
@@ -689,20 +675,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1529783519255</updated>
-      <workItem from="1529783520623" duration="13753000" />
+      <workItem from="1529783520623" duration="16511000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SudokuGameTestSuite_testSetValue - 2018.06.24 at 18h 57m 45s.xml">
-      <configuration name="SudokuGameTestSuite.testSetValue" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SudokuGameTestSuite_testSetValue - 2018.06.24 at 18h 57m 51s.xml">
-      <configuration name="SudokuGameTestSuite.testSetValue" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sudoku_test - 2018.06.24 at 19h 08m 49s.xml">
-      <configuration name="All in Sudoku_test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConsoleInterfaceTestSuite_testPrintBoard - 2018.06.24 at 19h 38m 16s.xml">
       <configuration name="ConsoleInterfaceTestSuite.testPrintBoard" configurationId="JUnit" />
     </history-entry>
@@ -724,9 +701,18 @@
     <history-entry file="ConsoleInterfaceTestSuite_testPrintBoard - 2018.06.24 at 19h 46m 47s.xml">
       <configuration name="ConsoleInterfaceTestSuite.testPrintBoard" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_Sudoku_test_(1) - 2018.06.24 at 19h 47m 05s.xml">
+      <configuration name="All in Sudoku_test (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Sudoku_test_(1) - 2018.06.24 at 19h 47m 29s.xml">
+      <configuration name="All in Sudoku_test (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Sudoku_test_(1) - 2018.06.24 at 19h 49m 31s.xml">
+      <configuration name="All in Sudoku_test (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13753000" />
+    <option name="totallyTimeSpent" value="16511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1035" extended-state="6" />
@@ -753,7 +739,7 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Terminal" weight="0.47714603" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Gradle" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
@@ -869,10 +855,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sudoku/user_interface/ConsoleInterfaceTestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sudoku/user_interface/ConsoleInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2592#2593#0" expanded="true" />
+            <element signature="e#2634#2635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sudoku/SudokuGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="662">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding>
             <element signature="e#1690#1691#0" expanded="true" />
             <element signature="e#1718#1719#0" expanded="true" />
@@ -882,30 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sudoku/SudokuGameTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="15" selection-end-line="77" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sudoku/user_interface/ConsoleInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sudoku/user_interface/ConsoleInterfaceTestSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+        <state relative-caret-position="2855">
+          <caret line="278" column="34" selection-start-line="278" selection-start-column="34" selection-end-line="278" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

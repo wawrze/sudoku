@@ -2,8 +2,6 @@ package sudoku.board;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sudoku.SudokuBoard;
-import sudoku.SudokuElement;
 
 public class BoardTestSuite {
 

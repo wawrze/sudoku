@@ -1,7 +1,7 @@
 package sudoku.user_interface;
 
 import org.junit.Test;
-import sudoku.SudokuBoard;
+import sudoku.board.SudokuBoard;
 import sudoku.SudokuGame;
 import sudoku.exceptions.IncorrectValueException;
 

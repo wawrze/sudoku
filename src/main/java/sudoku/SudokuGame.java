@@ -1,5 +1,7 @@
 package sudoku;
 
+import sudoku.board.SudokuBoard;
+import sudoku.board.SudokuElement;
 import sudoku.exceptions.IncorrectValueException;
 
 public class SudokuGame {
@@ -57,4 +59,29 @@ public class SudokuGame {
     public SudokuBoard getBoard() {
         return board;
     }
+
+    public boolean resolveSudoku() {
+        while(!resolveSudoku) {
+            resolveSudoku = true;
+            for(int i = 1;i < 10;i++)
+                for(int j = 1;j < 10;j++) {
+                    if(board.getValue(i, j) != SudokuElement.EMPTY)
+                        continue;
+                    resolveSudoku = false;
+                    int[] pv = board.getPossibleValues(i, j);
+                    if(pv.length == 0) {
+                        return false;
+                    }
+                    else if(pv.length == 1)
+                        try {
+                            setValue(i, j, pv[0]);
+                        }
+                        catch (IncorrectValueException e) {
+                            return false;
+                        }
+                }
+        }
+        return true;
+    }
+
 }

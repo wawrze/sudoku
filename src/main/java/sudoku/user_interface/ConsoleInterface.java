@@ -1,7 +1,7 @@
 package sudoku.user_interface;
 
-import sudoku.SudokuBoard;
-import sudoku.SudokuElement;
+import sudoku.board.SudokuBoard;
+import sudoku.board.SudokuElement;
 
 public class ConsoleInterface {
 
