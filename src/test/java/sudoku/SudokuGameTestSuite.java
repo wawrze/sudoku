@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import sudoku.board.SudokuBoard;
 import sudoku.exceptions.IncorrectValueException;
+import sudoku.user_interface.ConsoleInterface;
 
 public class SudokuGameTestSuite {
 
@@ -253,7 +254,7 @@ public class SudokuGameTestSuite {
         //Last one from http://elmo.sbs.arizona.edu/sandiway/sudoku/examples.html
         //Given
         SudokuGame game = new SudokuGame();
-        SudokuBoard board = game.getBoard();
+        SudokuBoard board;
         boolean result;
         //When
         game.setValue(1, 2, 2);
@@ -276,6 +277,7 @@ public class SudokuGameTestSuite {
         game.setValue(8, 6, 9);
         game.setValue(9, 8, 4);
         result = game.resolveSudoku();
+        board = game.getBoard();
         //Then
         Assert.assertTrue(result);
         Assert.assertEquals(1, board.getValue(1, 1));
@@ -359,6 +361,100 @@ public class SudokuGameTestSuite {
         Assert.assertEquals(6, board.getValue(9, 7));
         Assert.assertEquals(4, board.getValue(9, 8));
         Assert.assertEquals(9, board.getValue(9, 9));
+    }
+
+    @Test
+    public void testResolveEmptySudoku() {
+        //Given
+        SudokuGame game = new SudokuGame();
+        SudokuBoard board;
+        boolean result;
+        //When
+        result = game.resolveSudoku();
+        board = game.getBoard();
+        //Then
+        Assert.assertTrue(result);
+        Assert.assertEquals(2, board.getValue(1, 1));
+        Assert.assertEquals(7, board.getValue(1, 2));
+        Assert.assertEquals(5, board.getValue(1, 3));
+        Assert.assertEquals(1, board.getValue(1, 4));
+        Assert.assertEquals(4, board.getValue(1, 5));
+        Assert.assertEquals(3, board.getValue(1, 6));
+        Assert.assertEquals(8, board.getValue(1, 7));
+        Assert.assertEquals(6, board.getValue(1, 8));
+        Assert.assertEquals(9, board.getValue(1, 9));
+        Assert.assertEquals(1, board.getValue(2, 1));
+        Assert.assertEquals(3, board.getValue(2, 2));
+        Assert.assertEquals(6, board.getValue(2, 3));
+        Assert.assertEquals(7, board.getValue(2, 4));
+        Assert.assertEquals(9, board.getValue(2, 5));
+        Assert.assertEquals(8, board.getValue(2, 6));
+        Assert.assertEquals(2, board.getValue(2, 7));
+        Assert.assertEquals(4, board.getValue(2, 8));
+        Assert.assertEquals(5, board.getValue(2, 9));
+        Assert.assertEquals(8, board.getValue(3, 1));
+        Assert.assertEquals(4, board.getValue(3, 2));
+        Assert.assertEquals(9, board.getValue(3, 3));
+        Assert.assertEquals(5, board.getValue(3, 4));
+        Assert.assertEquals(6, board.getValue(3, 5));
+        Assert.assertEquals(2, board.getValue(3, 6));
+        Assert.assertEquals(7, board.getValue(3, 7));
+        Assert.assertEquals(1, board.getValue(3, 8));
+        Assert.assertEquals(3, board.getValue(3, 9));
+        Assert.assertEquals(7, board.getValue(4, 1));
+        Assert.assertEquals(1, board.getValue(4, 2));
+        Assert.assertEquals(2, board.getValue(4, 3));
+        Assert.assertEquals(8, board.getValue(4, 4));
+        Assert.assertEquals(3, board.getValue(4, 5));
+        Assert.assertEquals(5, board.getValue(4, 6));
+        Assert.assertEquals(4, board.getValue(4, 7));
+        Assert.assertEquals(9, board.getValue(4, 8));
+        Assert.assertEquals(6, board.getValue(4, 9));
+        Assert.assertEquals(4, board.getValue(5, 1));
+        Assert.assertEquals(6, board.getValue(5, 2));
+        Assert.assertEquals(3, board.getValue(5, 3));
+        Assert.assertEquals(2, board.getValue(5, 4));
+        Assert.assertEquals(1, board.getValue(5, 5));
+        Assert.assertEquals(9, board.getValue(5, 6));
+        Assert.assertEquals(5, board.getValue(5, 7));
+        Assert.assertEquals(7, board.getValue(5, 8));
+        Assert.assertEquals(8, board.getValue(5, 9));
+        Assert.assertEquals(5, board.getValue(6, 1));
+        Assert.assertEquals(9, board.getValue(6, 2));
+        Assert.assertEquals(8, board.getValue(6, 3));
+        Assert.assertEquals(4, board.getValue(6, 4));
+        Assert.assertEquals(7, board.getValue(6, 5));
+        Assert.assertEquals(6, board.getValue(6, 6));
+        Assert.assertEquals(1, board.getValue(6, 7));
+        Assert.assertEquals(3, board.getValue(6, 8));
+        Assert.assertEquals(2, board.getValue(6, 9));
+        Assert.assertEquals(6, board.getValue(7, 1));
+        Assert.assertEquals(5, board.getValue(7, 2));
+        Assert.assertEquals(4, board.getValue(7, 3));
+        Assert.assertEquals(3, board.getValue(7, 4));
+        Assert.assertEquals(2, board.getValue(7, 5));
+        Assert.assertEquals(1, board.getValue(7, 6));
+        Assert.assertEquals(9, board.getValue(7, 7));
+        Assert.assertEquals(8, board.getValue(7, 8));
+        Assert.assertEquals(7, board.getValue(7, 9));
+        Assert.assertEquals(3, board.getValue(8, 1));
+        Assert.assertEquals(2, board.getValue(8, 2));
+        Assert.assertEquals(1, board.getValue(8, 3));
+        Assert.assertEquals(9, board.getValue(8, 4));
+        Assert.assertEquals(8, board.getValue(8, 5));
+        Assert.assertEquals(7, board.getValue(8, 6));
+        Assert.assertEquals(6, board.getValue(8, 7));
+        Assert.assertEquals(5, board.getValue(8, 8));
+        Assert.assertEquals(4, board.getValue(8, 9));
+        Assert.assertEquals(9, board.getValue(9, 1));
+        Assert.assertEquals(8, board.getValue(9, 2));
+        Assert.assertEquals(7, board.getValue(9, 3));
+        Assert.assertEquals(6, board.getValue(9, 4));
+        Assert.assertEquals(5, board.getValue(9, 5));
+        Assert.assertEquals(4, board.getValue(9, 6));
+        Assert.assertEquals(3, board.getValue(9, 7));
+        Assert.assertEquals(2, board.getValue(9, 8));
+        Assert.assertEquals(1, board.getValue(9, 9));
     }
 
 }

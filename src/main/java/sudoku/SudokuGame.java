@@ -3,6 +3,7 @@ package sudoku;
 import sudoku.board.SudokuBoard;
 import sudoku.board.SudokuElement;
 import sudoku.exceptions.IncorrectValueException;
+import sudoku.user_interface.ConsoleInterface;
 
 public class SudokuGame {
 
@@ -62,7 +63,9 @@ public class SudokuGame {
 
     public boolean resolveSudoku() {
         while(!resolveSudoku) {
+            int minPossibilities = 9;
             resolveSudoku = true;
+            boolean nothingDone = true;
             for(int i = 1;i < 10;i++)
                 for(int j = 1;j < 10;j++) {
                     if(board.getValue(i, j) != SudokuElement.EMPTY)
@@ -75,13 +78,48 @@ public class SudokuGame {
                     else if(pv.length == 1)
                         try {
                             setValue(i, j, pv[0]);
+                            nothingDone = false;
                         }
                         catch (IncorrectValueException e) {
                             return false;
                         }
+                    else if(pv.length < minPossibilities)
+                        minPossibilities = pv.length;
                 }
+            if(!resolveSudoku && nothingDone) {
+                int row = 0;
+                int col = 0;
+                for(int i = 1;i < 10;i++)
+                    for(int j = 1;j < 10;j++)
+                        if(board.getPossibleValues(i, j).length == minPossibilities) {
+                            row = i;
+                            col = j;
+                        }
+                if(row == 0 || col == 0)
+                    return false;
+                int value = board.getPossibleValues(row, col)[0];
+                boolean result = guess(row, col, value);
+                if(!result)
+                    board.removePossibleValue(row, col, value);
+            }
         }
         return true;
+    }
+
+    private boolean guess(int row, int col, int value) {
+        SudokuBoard backTrack = new SudokuBoard(board);
+        try {
+            setValue(row, col ,value);
+        }
+        catch(IncorrectValueException e) {
+            return false;
+        }
+        if(resolveSudoku())
+            return true;
+        else {
+            board = backTrack;
+            return false;
+        }
     }
 
 }
