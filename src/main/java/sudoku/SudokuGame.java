@@ -3,7 +3,6 @@ package sudoku;
 import sudoku.board.SudokuBoard;
 import sudoku.board.SudokuElement;
 import sudoku.exceptions.IncorrectValueException;
-import sudoku.user_interface.ConsoleInterface;
 
 public class SudokuGame {
 
@@ -15,10 +14,12 @@ public class SudokuGame {
         board = new SudokuBoard();
     }
 
-    public void setValue(int row, int col, int value) throws IncorrectValueException{
-        if(!board.isPossibleValue(row, col, value))
+    public void setValue(int row, int col, int value) throws IncorrectValueException {
+        if(!board.isPossibleValue(row, col, value) || board.getValue(row, col) != SudokuElement.EMPTY)
             throw new IncorrectValueException();
         board.setValue(row, col, value);
+        for(int i = 1;i < 10;i++)
+            board.removePossibleValue(row, col, i);
         updatePossibleValues(row, col);
     }
 
@@ -61,7 +62,7 @@ public class SudokuGame {
         return board;
     }
 
-    public boolean resolveSudoku() {
+    public boolean resolveSudoku() throws IncorrectValueException {
         while(!resolveSudoku) {
             int minPossibilities = 9;
             resolveSudoku = true;
@@ -75,14 +76,10 @@ public class SudokuGame {
                     if(pv.length == 0) {
                         return false;
                     }
-                    else if(pv.length == 1)
-                        try {
-                            setValue(i, j, pv[0]);
-                            nothingDone = false;
-                        }
-                        catch (IncorrectValueException e) {
-                            return false;
-                        }
+                    else if(pv.length == 1) {
+                        setValue(i, j, pv[0]);
+                        nothingDone = false;
+                    }
                     else if(pv.length < minPossibilities)
                         minPossibilities = pv.length;
                 }
@@ -95,8 +92,6 @@ public class SudokuGame {
                             row = i;
                             col = j;
                         }
-                if(row == 0 || col == 0)
-                    return false;
                 int value = board.getPossibleValues(row, col)[0];
                 boolean result = guess(row, col, value);
                 if(!result)
@@ -106,14 +101,9 @@ public class SudokuGame {
         return true;
     }
 
-    private boolean guess(int row, int col, int value) {
+    private boolean guess(int row, int col, int value) throws IncorrectValueException {
         SudokuBoard backTrack = new SudokuBoard(board);
-        try {
-            setValue(row, col ,value);
-        }
-        catch(IncorrectValueException e) {
-            return false;
-        }
+        setValue(row, col ,value);
         if(resolveSudoku())
             return true;
         else {

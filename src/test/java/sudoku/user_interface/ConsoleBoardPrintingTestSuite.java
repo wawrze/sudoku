@@ -5,7 +5,7 @@ import sudoku.board.SudokuBoard;
 import sudoku.SudokuGame;
 import sudoku.exceptions.IncorrectValueException;
 
-public class ConsoleInterfaceTestSuite {
+public class ConsoleBoardPrintingTestSuite {
 
     @Test
     public void testPrintBoard() throws IncorrectValueException {
@@ -22,9 +22,8 @@ public class ConsoleInterfaceTestSuite {
         game.setValue(7, 5, 7);
         game.setValue(8, 1, 8);
         game.setValue(9, 9, 9);
-        ConsoleInterface.printBoard(board);
-        ConsoleInterface.switchSimplePrint();
-        ConsoleInterface.printBoard(board);
+        ConsoleBoardPrinting.printBoard(board, false);
+        ConsoleBoardPrinting.printBoard(board, true);
         //Then
     }
 

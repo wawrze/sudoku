@@ -3,11 +3,9 @@ package sudoku.user_interface;
 import sudoku.board.SudokuBoard;
 import sudoku.board.SudokuElement;
 
-public class ConsoleInterface {
+public class ConsoleBoardPrinting {
 
-    private static boolean simplePrint = true;
-
-    public static void printBoard(SudokuBoard board) {
+    public static void printBoard(SudokuBoard board, boolean simplePrint) {
         if(simplePrint) {
             printBoardSimple(board);
             return;
@@ -57,10 +55,6 @@ public class ConsoleInterface {
             System.out.print("|");
         }
         System.out.println();
-    }
-
-    public static void switchSimplePrint() {
-        simplePrint = !simplePrint;
     }
 
 }

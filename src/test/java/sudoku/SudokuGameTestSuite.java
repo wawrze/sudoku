@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import sudoku.board.SudokuBoard;
 import sudoku.exceptions.IncorrectValueException;
-import sudoku.user_interface.ConsoleInterface;
 
 public class SudokuGameTestSuite {
 
@@ -364,7 +363,7 @@ public class SudokuGameTestSuite {
     }
 
     @Test
-    public void testResolveEmptySudoku() {
+    public void testResolveEmptySudoku() throws IncorrectValueException{
         //Given
         SudokuGame game = new SudokuGame();
         SudokuBoard board;
