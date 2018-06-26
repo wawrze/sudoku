@@ -19,9 +19,7 @@ public class SudokuElement {
 
     public SudokuElement(SudokuElement element) {
         this.value = element.getValue();
-        this.possibleValues = new ArrayList<>();
-        for(int i = 0;i < 9;i++)
-            this.possibleValues.add(element.possibleValues.get(i));
+        this.possibleValues = new ArrayList<>(element.possibleValues);
     }
 
     public int getValue() {

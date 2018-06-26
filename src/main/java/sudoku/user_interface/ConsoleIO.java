@@ -8,13 +8,18 @@ import java.util.Scanner;
 
 public class ConsoleIO {
 
-    private static boolean simplePrint = true;
-    private static List<Integer[]> movesList;
+    private boolean simplePrint;
+    private List<Integer[]> movesList;
+    private Scanner sc;
 
-    public static List<Integer[]> getMovesList(SudokuBoard board) {
+    public ConsoleIO() {
+        simplePrint = true;
+        sc = new Scanner(System.in);
+    }
+
+    public List<Integer[]> getMovesList(SudokuBoard board) {
         movesList = new LinkedList<>();
         String input;
-        Scanner sc = new Scanner(System.in);
         do {
             cls();
             printWaitingForInput(board);
@@ -23,7 +28,7 @@ public class ConsoleIO {
         return movesList;
     }
 
-    private static boolean option(String input) {
+    private boolean option(String input) {
         if(input.equals("x")) {
             movesList = null;
             return true;
@@ -41,16 +46,14 @@ public class ConsoleIO {
         if(sArray.length == 0 || (sArray.length % 3) != 0)
             return false;
         for(int i = 0;i < sArray.length;i++) {
-            if (!sArray[i].equals("1") && !sArray[i].equals("2") && !sArray[i].equals("3") && !sArray[i].equals("4")
-                    && !sArray[i].equals("5") && !sArray[i].equals("6") && !sArray[i].equals("7")
-                    && !sArray[i].equals("8") && !sArray[i].equals("9"))
+            if(!(sArray[i].length() == 1 && "123456789".contains(sArray[i])))
                 return false;
             else {
                 if(i > 0 && ((i + 1) % 3) == 0) {
                     Integer[] array = {
-                            Character.getNumericValue(sArray[i - 2].charAt(0)),
-                            Character.getNumericValue(sArray[i - 1].charAt(0)),
-                            Character.getNumericValue(sArray[i].charAt(0))
+                            sArray[i - 2].charAt(0) - 48,
+                            sArray[i - 1].charAt(0) - 48,
+                            sArray[i].charAt(0) - 48
                     };
                     movesList.add(array);
                 }
@@ -61,7 +64,7 @@ public class ConsoleIO {
 
 
 
-    private static void printWaitingForInput(SudokuBoard board) {
+    private void printWaitingForInput(SudokuBoard board) {
         ConsoleBoardPrinting.printBoard(board, simplePrint);
         String s;
         if(simplePrint) {
@@ -89,21 +92,20 @@ public class ConsoleIO {
             System.out.println();
     }
 
-    public static void pause() {
-        Scanner sc = new Scanner(System.in);
+    public void pause() {
         System.out.println("Press \"Enter\" to continue.");
         sc.nextLine();
     }
 
-    public static void settingValue(int row, int col, int value) {
-        System.out.println("Setting (" + row + "," + col + ") to " + value + "...");
+    public void settingValue(int row, int col, int value) {
+        System.out.println("Setting row " + row + ", col " + col + " to " + value + "...");
     }
 
-    public static void incorrectValue(int row, int col, int value) {
+    public void incorrectValue(int row, int col, int value) {
         System.out.println("Row " + row + ", col " + col + " cannot be set to " + value + "! Skipping...");
     }
 
-    public static void printSolution(SudokuBoard board) {
+    public void printSolution(SudokuBoard board) {
         cls();
         System.out.println("Solution:");
         ConsoleBoardPrinting.printBoard(board,simplePrint);

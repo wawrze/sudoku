@@ -10,15 +10,15 @@ public class ConsoleBoardPrinting {
             printBoardSimple(board);
             return;
         }
-        System.out.println("┏━━━┯━━━┯━━━┳━━━┯━━━┯━━━┳━━━┯━━━┯━━━┓");
+        System.out.println("╔═══════════╦═══════════╦═══════════╗");
         for(int i = 1;i < 10;i++) {
             printRow(board, i);
             if(i == 9)
-                System.out.println("┗━━━┷━━━┷━━━┻━━━┷━━━┷━━━┻━━━┷━━━┷━━━┛");
+                System.out.println("╚═══════════╩═══════════╩═══════════╝");
             else if(i == 3 || i == 6)
-                System.out.println("┣━━━┿━━━┿━━━╋━━━┿━━━┿━━━╋━━━┿━━━┿━━━┫");
+                System.out.println("╠═══════════╬═══════════╬═══════════╣");
             else
-                System.out.println("┠───┼───┼───╂───┼───┼───╂───┼───┼───┨");
+                System.out.println("║───┼───┼───║───┼───┼───║───┼───┼───║");
         }
     }
 
@@ -31,14 +31,14 @@ public class ConsoleBoardPrinting {
     }
 
     private static void printRow(SudokuBoard board, int row) {
-        System.out.print("┃");
+        System.out.print("║");
         for(int i = 1;i < 10;i++){
             if(board.getValue(row, i) == SudokuElement.EMPTY)
                 System.out.print("   ");
             else
                 System.out.print(" " + board.getValue(row, i) + " ");
             if((i % 3) == 0)
-                System.out.print("┃");
+                System.out.print("║");
             else
                 System.out.print("│");
         }

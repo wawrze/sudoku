@@ -36,26 +36,7 @@ public class SudokuGame {
     }
 
     private int whichSubgrid(int row, int col) {
-        int subgrid = 0;
-        if(row < 4 && col < 4)
-            subgrid = 1;
-        if(row < 4 && col > 3 && col < 7)
-            subgrid =  2;
-        if(row < 4 && col > 6)
-            subgrid =  3;
-        if(row > 3 && row < 7 && col < 4)
-            subgrid =  4;
-        if(row > 3 && row < 7 && col > 3 && col < 7)
-            subgrid =  5;
-        if(row > 3 && row < 7 && col > 6)
-            subgrid =  6;
-        if(row > 6 && col < 4)
-            subgrid =  7;
-        if(row > 6 && col > 3 && col < 7)
-            subgrid =  8;
-        if(row > 6 && col > 6)
-            subgrid =  9;
-        return subgrid;
+        return (int) (Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3));
     }
 
     public SudokuBoard getBoard() {
@@ -86,12 +67,13 @@ public class SudokuGame {
             if(!resolveSudoku && nothingDone) {
                 int row = 0;
                 int col = 0;
-                for(int i = 1;i < 10;i++)
-                    for(int j = 1;j < 10;j++)
-                        if(board.getPossibleValues(i, j).length == minPossibilities) {
+                for(int i = 1;i < 10;i++) {
+                    for (int j = 1; j < 10; j++)
+                        if (board.getPossibleValues(i, j).length == minPossibilities) {
                             row = i;
                             col = j;
                         }
+                }
                 int value = board.getPossibleValues(row, col)[0];
                 boolean result = guess(row, col, value);
                 if(!result)
