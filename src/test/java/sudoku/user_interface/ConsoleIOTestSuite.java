@@ -122,7 +122,7 @@ public class ConsoleIOTestSuite {
         System.setIn(System.in);
         ui.settingValue(1,1,1);
         ui.incorrectValue(1,1,1);
-        ui.printSolution(board);
+        ui.printSolution(board, 1);
         //Then
     }
 

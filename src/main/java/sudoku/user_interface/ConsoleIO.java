@@ -105,9 +105,9 @@ public class ConsoleIO {
         System.out.println("Row " + row + ", col " + col + " cannot be set to " + value + "! Skipping...");
     }
 
-    public void printSolution(SudokuBoard board) {
+    public void printSolution(SudokuBoard board, int guesses) {
         cls();
-        System.out.println("Solution:");
+        System.out.println("Solution (" + guesses + " guesses to resolve):");
         ConsoleBoardPrinting.printBoard(board,simplePrint);
     }
 

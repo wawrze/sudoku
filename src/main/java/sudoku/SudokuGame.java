@@ -8,10 +8,12 @@ public class SudokuGame {
 
     private boolean resolveSudoku;
     private SudokuBoard board;
+    private int guesses;
 
     public SudokuGame() {
         resolveSudoku = false;
         board = new SudokuBoard();
+        guesses = 0;
     }
 
     public void setValue(int row, int col, int value) throws IncorrectValueException {
@@ -84,6 +86,7 @@ public class SudokuGame {
     }
 
     private boolean guess(int row, int col, int value) throws IncorrectValueException {
+        guesses++;
         SudokuBoard backTrack = new SudokuBoard(board);
         setValue(row, col ,value);
         if(resolveSudoku())
@@ -92,6 +95,10 @@ public class SudokuGame {
             board = backTrack;
             return false;
         }
+    }
+
+    public int getGuesses() {
+        return guesses;
     }
 
 }
