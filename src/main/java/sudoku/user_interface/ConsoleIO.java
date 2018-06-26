@@ -5,6 +5,7 @@ import sudoku.board.SudokuBoard;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class ConsoleIO {
 
@@ -13,7 +14,7 @@ public class ConsoleIO {
     private Scanner sc;
 
     public ConsoleIO() {
-        simplePrint = true;
+        simplePrint = false;
         sc = new Scanner(System.in);
     }
 
@@ -59,10 +60,12 @@ public class ConsoleIO {
                 }
             }
         }
+        if(simplePrint)
+            System.out.println("+------------------------------------------------------+");
+        else
+            System.out.println("╔══════════════════════════════════════════════════════╗");
         return true;
     }
-
-
 
     private void printWaitingForInput(SudokuBoard board) {
         ConsoleBoardPrinting.printBoard(board, simplePrint);
@@ -93,22 +96,113 @@ public class ConsoleIO {
     }
 
     public void pause() {
-        System.out.println("Press \"Enter\" to continue.");
+        if(simplePrint) {
+            System.out.println("+------------------------------------------------------+");
+            System.out.println("+------------------------------------------------------+");
+            System.out.println("|  Press \"Enter\" to continue.                          |");
+            System.out.println("+------------------------------------------------------+");
+        }
+        else {
+            System.out.println("╚══════════════════════════════════════════════════════╝");
+            System.out.println("╔══════════════════════════════════════════════════════╗");
+            System.out.println("║  Press \"Enter\" to continue.                          ║");
+            System.out.println("╚══════════════════════════════════════════════════════╝");
+        }
         sc.nextLine();
     }
 
     public void settingValue(int row, int col, int value) {
-        System.out.println("Setting row " + row + ", col " + col + " to " + value + "...");
+        if(simplePrint) {
+            System.out.println("| Setting row " + row + ", col " + col + " to " + value
+                    + "...                         |");
+        }
+        else {
+            System.out.println("║ Setting row " + row + ", col " + col + " to " + value
+                    + "...                         ║");
+        }
     }
 
     public void incorrectValue(int row, int col, int value) {
-        System.out.println("Row " + row + ", col " + col + " cannot be set to " + value + "! Skipping...");
+        if(simplePrint) {
+            System.out.println("| Row " + row + ", col " + col + " cannot be set to " + value
+                    + "! Skipping...         |");
+        }
+        else {
+            System.out.println("║ Row " + row + ", col " + col + " cannot be set to " + value
+                    + "! Skipping...         ║");
+        }
     }
 
-    public void printSolution(SudokuBoard board, int guesses) {
+    public void printSolution(SudokuBoard board, int guesses, Set<SudokuBoard> solutions) {
         cls();
-        System.out.println("Solution (" + guesses + " guesses to resolve):");
-        ConsoleBoardPrinting.printBoard(board,simplePrint);
+        String s = "" + (guesses < 100 ? " " : "") + (guesses < 10 ? " " : "");
+        if(simplePrint)
+            System.out.println("+------------------------------------------------------+");
+        else
+            System.out.println("╔══════════════════════════════════════════════════════╗");
+        if(solutions.size() == 1) {
+            if(simplePrint) {
+                System.out.println("|             This board has one solution              |");
+                System.out.println("|               (" + guesses + " guesses to resolve):              " + s + "|");
+            }
+            else {
+                System.out.println("║             This board has one solution              ║");
+                System.out.println("║               (" + guesses + " guesses to resolve):              " + s + "║");
+
+            }
+            if(simplePrint)
+                System.out.println("+------------------------------------------------------+");
+            else
+                System.out.println("╚══════════════════════════════════════════════════════╝");
+            ConsoleBoardPrinting.printBoard(board, simplePrint);
+        }
+        else if(solutions.size() < 5) {
+            if(simplePrint) {
+                System.out.println("|              This board has " + solutions.size() + " solutions             |");
+                System.out.println("|           (" + guesses + " guesses to get all of them):            " + s + "|");
+            }
+            else {
+                System.out.println("║              This board has " + solutions.size() + " solutions             ║");
+                System.out.println("║           (" + guesses + " guesses to get all of them):            " + s + "║");
+            }
+            if(simplePrint)
+                System.out.println("+------------------------------------------------------+");
+            else
+                System.out.println("╚══════════════════════════════════════════════════════╝");
+            printMultipleSolutions(solutions);
+        }
+        else {
+            if(simplePrint) {
+                System.out.println("|          This board has 5 or more solutions          |");
+                System.out.println("|             (" + guesses + " guesses to get first 5):            " + s + "|");
+            }
+            else {
+                System.out.println("║          This board has 5 or more solutions          ║");
+                System.out.println("║             (" + guesses + " guesses to get first 5):            " + s + "║");
+            }
+            if(simplePrint)
+                System.out.println("+------------------------------------------------------+");
+            else
+                System.out.println("╚══════════════════════════════════════════════════════╝");
+            printMultipleSolutions(solutions);
+        }
+    }
+
+    private void printMultipleSolutions(Set<SudokuBoard> solutions) {
+        int counter = 1;
+        for(SudokuBoard sb : solutions) {
+            if(simplePrint)
+                System.out.print("+-----------------------------------+\n|");
+            else
+                System.out.print("╔═══════════════════════════════════╗\n║");
+            System.out.print("            Solution " + counter + ":            ");
+            if(simplePrint)
+                System.out.println("|\n+-----------------------------------+");
+            else
+                System.out.println("║\n╚═══════════════════════════════════╝");
+            counter++;
+            ConsoleBoardPrinting.printBoard(sb, simplePrint);
+        }
     }
 
 }

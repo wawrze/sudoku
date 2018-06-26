@@ -67,4 +67,20 @@ public class BoardTestSuite {
         Assert.assertTrue(result3);
     }
 
+    @Test
+    public void testEquals() {
+        //Given
+        SudokuBoard originalBoard = new SudokuBoard();
+        SudokuBoard copiedBoard = new SudokuBoard(originalBoard);
+        boolean result1;
+        boolean result2;
+        //When
+        result1 = originalBoard.equals(copiedBoard);
+        originalBoard.setValue(1,1,1);
+        result2 = originalBoard.equals(copiedBoard);
+        //Then
+        Assert.assertTrue(result1);
+        Assert.assertFalse(result2);
+    }
+
 }

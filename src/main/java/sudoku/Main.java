@@ -43,7 +43,7 @@ public class Main {
         } while(true);
         if(movesList != null) {
             game.resolveSudoku();
-            ui.printSolution(game.getBoard(), game.getGuesses());
+            ui.printSolution(game.getBoard(), game.getGuesses(), game.getSolutions());
         }
     }
 

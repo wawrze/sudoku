@@ -32,7 +32,7 @@ public class MainTestSuite {
     @Test
     public void testSingleMove() throws IncorrectValueException {
         //Given
-        ByteArrayInputStream in = new ByteArrayInputStream("1,1,1\nx\nx\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("p\n1,1,1\nx\nx\n".getBytes());
         //When
         System.setIn(in);
         Main.main(null);

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import sudoku.board.SudokuBoard;
 import sudoku.exceptions.IncorrectValueException;
+import sudoku.user_interface.ConsoleIO;
 
 public class SudokuGameTestSuite {
 
@@ -130,6 +131,7 @@ public class SudokuGameTestSuite {
         //Given
         SudokuGame game = new SudokuGame();
         SudokuBoard board = game.getBoard();
+        ConsoleIO ui = new ConsoleIO();
         boolean result;
         //When
         game.setValue(1, 1, 5);
@@ -164,6 +166,7 @@ public class SudokuGameTestSuite {
         game.setValue(9, 9, 9);
         result = game.resolveSudoku();
         //Then
+        ui.printSolution(board, game.getGuesses(), game.getSolutions());
         Assert.assertTrue(result);
         Assert.assertEquals(5, board.getValue(1, 1));
         Assert.assertEquals(3, board.getValue(1, 2));
@@ -253,7 +256,7 @@ public class SudokuGameTestSuite {
         //Last one from http://elmo.sbs.arizona.edu/sandiway/sudoku/examples.html
         //Given
         SudokuGame game = new SudokuGame();
-        SudokuBoard board;
+        SudokuBoard board = null;
         boolean result;
         //When
         game.setValue(1, 2, 2);
@@ -276,7 +279,10 @@ public class SudokuGameTestSuite {
         game.setValue(8, 6, 9);
         game.setValue(9, 8, 4);
         result = game.resolveSudoku();
-        board = game.getBoard();
+        for(SudokuBoard sb : game.getSolutions()) {
+            board = sb;
+            break;
+        }
         //Then
         Assert.assertTrue(result);
         Assert.assertEquals(1, board.getValue(1, 1));
@@ -366,11 +372,14 @@ public class SudokuGameTestSuite {
     public void testResolveEmptySudoku() throws IncorrectValueException{
         //Given
         SudokuGame game = new SudokuGame();
-        SudokuBoard board;
+        SudokuBoard board = null;
         boolean result;
         //When
         result = game.resolveSudoku();
-        board = game.getBoard();
+        for(SudokuBoard sb : game.getSolutions()) {
+            board = sb;
+            break;
+        }
         //Then
         Assert.assertTrue(result);
         Assert.assertEquals(2, board.getValue(1, 1));

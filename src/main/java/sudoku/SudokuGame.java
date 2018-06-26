@@ -4,16 +4,22 @@ import sudoku.board.SudokuBoard;
 import sudoku.board.SudokuElement;
 import sudoku.exceptions.IncorrectValueException;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class SudokuGame {
 
     private boolean resolveSudoku;
     private SudokuBoard board;
     private int guesses;
+    private Set<SudokuBoard> solutions;
 
     public SudokuGame() {
         resolveSudoku = false;
         board = new SudokuBoard();
         guesses = 0;
+        solutions = new HashSet<>();
     }
 
     public void setValue(int row, int col, int value) throws IncorrectValueException {
@@ -82,6 +88,8 @@ public class SudokuGame {
                     board.removePossibleValue(row, col, value);
             }
         }
+        if(solutions.size() < 5)
+            solutions.add(board);
         return true;
     }
 
@@ -89,8 +97,15 @@ public class SudokuGame {
         guesses++;
         SudokuBoard backTrack = new SudokuBoard(board);
         setValue(row, col ,value);
-        if(resolveSudoku())
-            return true;
+        if(resolveSudoku()) {
+            if(solutions.size() < 5) {
+                solutions.add(board);
+                board = backTrack;
+                return false;
+            }
+            else
+                return true;
+        }
         else {
             board = backTrack;
             return false;
@@ -99,6 +114,10 @@ public class SudokuGame {
 
     public int getGuesses() {
         return guesses;
+    }
+
+    public Set<SudokuBoard> getSolutions() {
+        return solutions;
     }
 
 }
